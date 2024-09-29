@@ -184,7 +184,7 @@ const screenSaver = () => {
                 sketch.setAttribute("class", "sketch");
                 return ;
             }
-        }, 10)
+        }, 300)
     } else {
         lights.forEach(light => {
             light.style.width = `${60/linelength}vh`;
