@@ -165,7 +165,12 @@ let screenSaving = 0;
 let screenSaveInterval;
 const screenSaver = () => {
     let lights = document.querySelectorAll(".light");
+    let linelength = Math.sqrt(lights.length); 
     if (screenSaving === 0) {
+        lights.forEach(light => {
+            light.style.width = `${90/linelength}vh`;
+            light.style.height = `${90/linelength}vh`;
+        });
         screenSaving = 1;
         screenSaveButton.textContent = "Stop Screen Saver Mode";
         sketch.setAttribute("class", "sketch fullscreen");
@@ -173,13 +178,18 @@ const screenSaver = () => {
             if (screenSaving === 1) {
                 let randomNumber = Math.floor(Math.random() * lights.length)
                 colorize(lights[randomNumber]);
+                console.log("colorized a light");
             } else {
                 screenSaveButton.textContent = "Start Screen Saver Mode"
                 sketch.setAttribute("class", "sketch");
                 return ;
             }
-        }, 100)
+        }, 10)
     } else {
+        lights.forEach(light => {
+            light.style.width = `${60/linelength}vh`;
+            light.style.height = `${60/linelength}vh`;
+        });
         sketch.setAttribute("class", "sketch");
         screenSaveButton.textContent = "Start Screen Saver Mode"
         screenSaving = 0;
@@ -230,7 +240,7 @@ const drawLights = (number) => {
         light.remove();
     });
     let i = 0;
-    let startSize = (60/number) ;
+    let startSize = (60/number);
     while (i < number) {
         let j = 0
         while (j < number) {
@@ -238,7 +248,6 @@ const drawLights = (number) => {
             light.setAttribute("class", "light");
             light.setAttribute("id", `${i.toString() + j.toString()}`);
             light.style.width = `${startSize}vh`;
-            // light.style.border = "1px black solid";
             light.style.height = `${startSize}vh`;
             light.style.backgroundColor = "black";
             listen(light);
