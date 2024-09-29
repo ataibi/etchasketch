@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Etch-a-sketch !</title>
+</head>
+<body>
+    <h1 class="vt323-regular">Etch-a-sketch</h1>
+    <div id="wrapper">
+        <div class="sketch">
+        </div>
+        <div id="controls">
+            <fieldset>
+                <button id="reset" value="reset">Resize</button>
+                <button id="randomize" value="randomize">Fill Grid</button><br>
+                <input type="radio" value="redPen" name="pen" id="redPen">Colored Pen
+                <input type="color" value="#ff0000" name="colorPick" id="colorPick"><br>
+                <input type="radio" value="rainbowPen" name="pen" id="rainbowPen">Rainbow Pen<br>
+                <input type="radio" value="randomPen" name="pen" id="randomPen">Random Color Pen<br>
+                <input type="radio" value="randomPen" name="pen" id="randomOpacityPen">Random Color & Opacity Pen<br>
+                <input type="radio" value="none" name="pen" id="noPen" checked>Disable Pen<br>
+                <input type="radio" value="eraserDown" name="pen" id="eraserDown">Activate Eraser<br>
+                <button id="screenSave" value="screenSave">Start Screen Saver Mode</button><br>
+                <button id="screenShot" value="ScreenShot">ScreenShot</button><br>
+                
+            </fieldset>
+        </div>
+    </div>
+    <div class="resetWindow">
+        <button id="close" value="confirm">X</button>
+            <span id="inputSpan"><input type="number" name="resizeNumber" placeholder="25" value="25" class="newNumber">
+            <button value="confirm" id="resize">Reset</button></span>
+            
+    </div>
+    <script src="./dom-to-image-more/dist/dom-to-image-more.min.js"></script>
+    <script type="module" src="script.js" ></script>
+</body>
+</html>
